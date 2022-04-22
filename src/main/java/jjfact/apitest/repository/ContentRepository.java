@@ -1,4 +1,4 @@
-package jjfact.apitest.domain.content.repository;
+package jjfact.apitest.repository;
 
 import jjfact.apitest.domain.content.Content;
 import org.springframework.data.jpa.repository.JpaRepository;

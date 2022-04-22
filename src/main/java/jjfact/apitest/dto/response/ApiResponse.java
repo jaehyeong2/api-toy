@@ -1,4 +1,4 @@
-package jjfact.apitest.global.dto.response;
+package jjfact.apitest.dto.response;
 
 public class ApiResponse<T> {
     private T data;

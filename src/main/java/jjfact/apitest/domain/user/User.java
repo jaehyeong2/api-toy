@@ -1,9 +1,7 @@
 package jjfact.apitest.domain.user;
 
-import jjfact.apitest.domain.user.dto.UserInsertReq;
-import jjfact.apitest.global.domain.BaseTimeEntity;
+import jjfact.apitest.domain.BaseTimeEntity;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

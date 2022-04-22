@@ -1,6 +1,6 @@
 package jjfact.apitest.domain.content;
 
-import jjfact.apitest.global.domain.BaseTimeEntity;
+import jjfact.apitest.domain.BaseTimeEntity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

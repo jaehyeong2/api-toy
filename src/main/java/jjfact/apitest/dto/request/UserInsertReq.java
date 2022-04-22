@@ -1,4 +1,4 @@
-package jjfact.apitest.domain.user.dto;
+package jjfact.apitest.dto.request;
 
 import jjfact.apitest.domain.user.User;
 

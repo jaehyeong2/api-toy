@@ -1,11 +1,13 @@
-package jjfact.apitest.domain.user.service;
+package jjfact.apitest.service.user;
 
 import jjfact.apitest.domain.user.User;
-import jjfact.apitest.domain.user.repository.UserRepository;
+import jjfact.apitest.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -14,6 +16,20 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+
+    @Override
+    public User getUser(Long id) {
+        User findUser = userRepository.findById(id).orElseThrow(() -> {
+            return new IllegalStateException("조회 실패");
+        });
+        return findUser;
+    }
+
+    @Override
+    public List<User> getUserList() {
+        List<User> userList = userRepository.findAll();
+        return userList;
+    }
 
     @Transactional
     @Override
