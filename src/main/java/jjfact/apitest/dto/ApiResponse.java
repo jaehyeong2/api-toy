@@ -1,4 +1,4 @@
-package jjfact.apitest.dto.response;
+package jjfact.apitest.dto;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;

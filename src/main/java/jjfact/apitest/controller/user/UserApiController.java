@@ -1,8 +1,9 @@
-package jjfact.apitest.controller;
+package jjfact.apitest.controller.user;
 
 import jjfact.apitest.domain.user.User;
+import jjfact.apitest.dto.user.UserInsertReq;
 import jjfact.apitest.service.user.UserServiceImpl;
-import jjfact.apitest.dto.response.ApiResponse;
+import jjfact.apitest.dto.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -26,7 +27,6 @@ public class UserApiController {
     @GetMapping("")
     public ApiResponse<?> getUserList(){
         List<User> userList = userService.getUserList();
-        log.info("UserApiController: getUserList 호출");
         return new ApiResponse<>(userList, HttpStatus.OK);
     }
 
@@ -43,16 +43,15 @@ public class UserApiController {
     }
 
     @PostMapping("")
-    public ApiResponse<?> insert(@RequestBody User user){
+    public ApiResponse<?> insert(@RequestBody UserInsertReq req){
+        User user = req.toEntity();
         userService.insertUser(user);
-        log.info("UserApiController: insert 호출");
         return new ApiResponse<>("ok", HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     public ApiResponse<?> delete(@PathVariable Long id){
         userService.deleteUser(id);
-        log.info("UserApiController: delete 호출");
         return new ApiResponse<>("ok", HttpStatus.OK);
     }
 }

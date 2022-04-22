@@ -1,4 +1,4 @@
-package jjfact.apitest.domain.content;
+package jjfact.apitest.domain.categorry;
 
 import jjfact.apitest.domain.BaseTimeEntity;
 import lombok.AccessLevel;
@@ -13,10 +13,10 @@ import javax.persistence.Id;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
-public class Content extends BaseTimeEntity {
+public class Category extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
+    private String name;
 }

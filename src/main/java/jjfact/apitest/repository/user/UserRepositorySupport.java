@@ -1,7 +1,6 @@
 package jjfact.apitest.repository.user;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import jjfact.apitest.domain.user.QUser;
 import jjfact.apitest.domain.user.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -14,6 +13,7 @@ import static jjfact.apitest.domain.user.QUser.user;
 @Repository
 public class UserRepositorySupport {
     private final JPAQueryFactory queryFactory;
+
 
     public User findById(Long id){
         User findUser = queryFactory.selectFrom(user)

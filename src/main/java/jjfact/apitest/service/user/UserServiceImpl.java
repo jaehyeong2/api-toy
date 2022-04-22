@@ -1,6 +1,10 @@
 package jjfact.apitest.service.user;
 
 import jjfact.apitest.domain.user.User;
+import jjfact.apitest.dto.TokenResponse;
+import jjfact.apitest.dto.user.LoginDto;
+import jjfact.apitest.handler.exception.ErrorCode;
+import jjfact.apitest.handler.provider.TokenProvider;
 import jjfact.apitest.repository.user.UserRepository;
 import jjfact.apitest.repository.user.UserRepositorySupport;
 import lombok.RequiredArgsConstructor;
@@ -15,10 +19,9 @@ import java.util.List;
 @Transactional(readOnly = true)
 @Service
 public class UserServiceImpl implements UserService {
-
     private final UserRepository userRepository;
     private final UserRepositorySupport userRepositorySupport;
-
+    private final TokenProvider tokenProvider;
     @Override
     public User getUser(Long id) {
 //        User findUser = userRepository.findById(id).orElseThrow(() -> {
@@ -74,4 +77,17 @@ public class UserServiceImpl implements UserService {
         }
         return false;
     }
+
+//    public TokenResponse login(LoginDto dto) {
+//        User user = userRepositorySupport.findByEmail(dto.getEmail());
+//
+//        if (!passwordEncoder.matches(dto.getPassword(), user.getPassword())) {
+//            throw new BusinessException(ErrorCode.NOT_MATCH_PASSWORD);
+//        }
+//
+////        String token = tokenProvider.createToken(String.valueOf(user.getId()), user.getRoles());
+//        String token = tokenProvider.createToken(String.valueOf(user.getId()), user.getRoles());
+//        String refreshToken = tokenProvider.createJwtRefreshToken(String.valueOf(user.getId()), user.getRoles());
+//        return new TokenResponse(token, refreshToken, user);
+//    }
 }
