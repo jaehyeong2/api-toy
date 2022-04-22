@@ -54,4 +54,6 @@ public class UserApiController {
         userService.deleteUser(id);
         return new ApiResponse<>("ok", HttpStatus.OK);
     }
+
+    //리모트에 바로푸쉬가능?
 }
