@@ -1,7 +1,7 @@
 package jjfact.apitest.service.content;
 
 import jjfact.apitest.domain.content.Content;
-import jjfact.apitest.repository.ContentRepository;
+import jjfact.apitest.repository.content.ContentRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

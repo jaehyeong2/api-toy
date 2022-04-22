@@ -1,7 +1,8 @@
 package jjfact.apitest.service.user;
 
 import jjfact.apitest.domain.user.User;
-import jjfact.apitest.repository.UserRepository;
+import jjfact.apitest.repository.user.UserRepository;
+import jjfact.apitest.repository.user.UserRepositorySupport;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -16,12 +17,15 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+    private final UserRepositorySupport userRepositorySupport;
 
     @Override
     public User getUser(Long id) {
-        User findUser = userRepository.findById(id).orElseThrow(() -> {
-            return new IllegalStateException("조회 실패");
-        });
+//        User findUser = userRepository.findById(id).orElseThrow(() -> {
+//            return new IllegalStateException("조회 실패");
+//        });
+
+        User findUser = userRepositorySupport.findById(id);
         return findUser;
     }
 
@@ -51,13 +55,23 @@ public class UserServiceImpl implements UserService {
 
     }
 
-    @Override
-    public boolean checkEmail(String query) {
+    @Override   // 중복이면 true
+    public boolean checkEmail(String email) {
+        long result = userRepositorySupport.duplicateCheckEmail(email);
+
+        if(result == 1){
+            return true;
+        }
         return false;
     }
 
     @Override
-    public boolean checkNickName(String query) {
+    public boolean checkUsername(String username) {
+        long result = userRepositorySupport.duplicateCheckUsername(username);
+
+        if(result == 1){
+            return true;
+        }
         return false;
     }
 }

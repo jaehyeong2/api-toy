@@ -12,5 +12,5 @@ public interface UserService {
     void deleteUser(Long id);
     void updateUser(Long id);
     boolean checkEmail(String query);
-    boolean checkNickName(String query);
+    boolean checkUsername(String query);
 }
